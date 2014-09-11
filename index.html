@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="mg">
+<head>
+	<title>Feit Demo</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="public/css/MemoryMatching.min.css">
+	<script type="text/javascript" src="public/js/MemoryMatching.min.js"></script>
+</head>
+<body>
+	<div id="screen">
+		<div ng-view></div>
+	</div>
+
+	<script type="text/ng-template" id="start.html">
+		<div id="startScence">
+			<h1 class="animated fadeInUp">{{name}}</h1>
+			<a class="button animated fadeInLeft" href="#/play">Start</a>
+		</div>
+		<div class="copyright animated fadeInRight"><small>&copy; feit.topming.com<small></div>
+
+	</script>
+
+	<script type="text/ng-template" id="scence.html">
+		<h1 class="animated fadeInUp">{{name}}</h1>
+		<div class="toolbar animated flipInX">
+			<button ng-click="go('/start')">Back</button>
+			<button ng-click="startGame()">Restart</button>
+			<strong>Clicked: {{clickCount}}</strong>
+		</div>
+		<table class="card-table" ng-class="{timeout:progress<1}" ng-show="!isWinned">
+			<tr ng-repeat="lineItems in cards">
+				<td ng-repeat="card in lineItems">
+					<card card="card" lastSelected="lastSelected" ng-show="!card.dismiss" selected="selected(card)"></card>
+				</td>
+			</tr>
+		</table>
+		<div ng-show="isWinned">
+			<h1>You Win!!</h1>
+		</div>
+		<progress></progress>
+
+	</script>
+</body>
+</html>
