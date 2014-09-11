@@ -1,7 +1,7 @@
 Memory Matching
 ===============
 
-A tiny html game using Angularjs
+A tiny html game using Angularjs, [Live demo](http://feiteam.github.io/memory-matching).
 
 
 ## How to Build
